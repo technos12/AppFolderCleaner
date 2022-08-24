@@ -41,7 +41,7 @@ namespace AppFolderCleaner
                     Console.Write("Cleaning folder " + folder.Path + "... ");
 
                     DirectoryInfo dirInfo = new DirectoryInfo(folder.Path);
-                    //IOrderedEnumerable<FileInfo> 
+                    
                     List<FileInfo> files = dirInfo.GetFiles().OrderByDescending(p => p.CreationTime).ToList();
 
                     //Trim the oldest files, if there is too much files.
@@ -57,6 +57,10 @@ namespace AppFolderCleaner
                 else
                     Console.WriteLine("Folder not found : " + folder.Path);
             }
+
+            Console.WriteLine("Cleaning process done.");
+
+            //Console.ReadKey();
         }
     }
 }
